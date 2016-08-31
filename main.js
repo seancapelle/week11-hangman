@@ -6,7 +6,7 @@
 var inquirer = require('inquirer');
 
 
-
+//Main -> Game -> Letter -> Main ->  
 
 //Ask user
 inquirer.prompt([{
@@ -15,18 +15,9 @@ inquirer.prompt([{
 } 
 ]).then(function(answers) {
     
-    var newWords = new WordBank(answers.noun, answers.verb, answers.adjective);
+    //Assign answer to userGuess
+    var userGuess = answers;
 
-  	newWords.sentence();
+  	console.log(userGuess);
 })
 
-// function WordBank(noun, verb, adjective, story) {
-
-// 	this.noun = noun,
-// 	this.verb = verb.
-// 	this.adjective = adjective,
-// 	this.story = story,
-// 	this.sentence = function() {
-// 		console.log(this.noun + this.verb + this.adjective);
-// 	}
-// }
