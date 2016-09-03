@@ -4,7 +4,7 @@ var lettersInChosenWord = [];
 var numBlanks = 0;
 var dashedArray = [];
 
-//Grab the game.js info
+//Grab the game.js random word
 var wordImport = require('./game.js').word;
 
 console.log(wordImport);
@@ -12,25 +12,23 @@ console.log(wordImport);
 //Break word into individual letters
 lettersInChosenWord = wordImport.randomWord.split("");
 
-console.log(lettersInChosenWord);
-
 //Set number of blanks
 numBlanks = lettersInChosenWord.length;
 
-console.log(numBlanks);
 
 //Word constructor
-function Generator(word, count) {
-	this.word = word,
-	this.count = count,
+function Generator(wordImport, numBlanks) {
+	this.word = wordImport,
+	this.count = numBlanks,
 	this.display = function() {
 
 		//Populate dashes for chosenWord
-		for (var i = 0; i < numBlanks; i++) {
-			// console.log("_");
+		for (var i = 0; i < this.count; i++) {
+
 			dashedArray.push("_");
 			
 		}
+
 		//Display the dashed word
 		console.log(dashedArray.join(" "));
 	}
@@ -39,5 +37,9 @@ function Generator(word, count) {
 //Feed dashedWord into constructor
 var dashedWord = new Generator(wordImport, numBlanks);
 
+
+exports.dash = {
+	dashedWord: dashedWord.display(),
+}
 //Push to console
-dashedWord.display();
+// dashedWord.display();
