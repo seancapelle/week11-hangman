@@ -1,7 +1,7 @@
 //Randomly selects word
 
 //Word Array
-var wordList = ["JEDI", "STORMTROOPER", "LIGHTSABER", "YODA", "TATOOINE", "SKYWALKER", "LIGHTSPEED"];
+var wordList = ["jedi", "stormtrooper", "lightsaber", "yoda", "tatooine", "skywalker", "lightspeed"];
 
 //Pick word at random
 chosenWord = wordList[Math.floor(Math.random() * wordList.length)];

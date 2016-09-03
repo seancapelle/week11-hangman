@@ -13,7 +13,7 @@ function startGame(){
 function userInput(){
 	//Ask user
 	inquirer.prompt([{
-	    name: "letter guess",
+	    name: "letter",
 	    message: "Which letter do you guess?"
 	}])
 	.then(function(answers) {
@@ -21,42 +21,49 @@ function userInput(){
 	    //Assign answer to userGuess
 	    var userGuess = answers;
 	    
-	    //Export userGuess
+	    //Export userGuess to word.js
 	    exports.letter = {	
-		guess: userGuess,
+			guess: userGuess,
 		}
+
+		checkGuess();
 	})
 }
 
 function checkGuess(){
+console.log("In checkGuess");
+	//Import word.js
+	var guessImport = require('./word.js').guess;
 
-//Import word.js
+	console.log(guessImport.array);
+
+
 }
 
-function endGame(){
+// function endGame(){
 	
-	if (lettersInChosenWord.toString() == blanksAndSuccesses.toString()) {
+// 	if (lettersInChosenWord.toString() == blanksAndSuccesses.toString()) {
 			
-			console.log("The Force is with you!");
+// 			console.log("The Force is with you!");
 
-			//Restart the game
-			startGame();
-		}
+// 			//Restart the game
+// 			startGame();
+// 		}
 
-	//If no more guesses
-	else if (numGuesses == 0) {
+// 	//If no more guesses
+// 	else if (numGuesses == 0) {
 
-		console.log("That is why you fail.");
+// 		console.log("That is why you fail.");
 
-		//Restart game
-		startGame();
-	}
-}
+// 		//Restart game
+// 		startGame();
+// 	}
+// }
 
 startGame();
 
 userInput();
 
-checkGuess();
+// checkGuess();
 
-endGame();
+// endGame();
